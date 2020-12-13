@@ -24,7 +24,7 @@ async def scatter_plot(file: UploadFile = File(...)):
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4))
     ax1.scatter(data[:, 0], data[:, 1])
-    ax2.scatter(data[:, 0]/data[:, 0].max(), data[:, 1]//data[:, 1].max())
+    ax2.scatter(data[:, 0]//data[:, 0].max(), data[:, 1]//data[:, 1].max())
 
     pic_buf = io.BytesIO()
     plt.savefig(pic_buf, format='png')
